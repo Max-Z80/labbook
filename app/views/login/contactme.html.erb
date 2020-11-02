@@ -1,0 +1,35 @@
+<% @orange=" Contact me" %>
+
+<%= render :partial => "headfoot", :locals => { :origin => @origin} %> 
+
+<p> Feel free to fill this form for one of the following purposes: </P>
+<ul>
+	<li> you found a bug. Please describe the bug as much as possible and also how it happened ie what 
+	is the succession of steps which lead to that particular bug. Is it reproducible ?  </li>
+	<li> you want to suggest an improvement. </li>
+	<li> you lost your password.</li>
+	
+</ul>
+
+<%= error_messages_for 'user' %>
+<% if flash[:notice] -%>
+<div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+
+
+<% form_tag ('sendmessage') do %>
+ <%= label 'message', 'who', 'Your Name' %> <br>
+ <%= text_field("message", "who") %>                <br>
+
+ <%= label 'message', 'sender', 'Your e-mail address' %> <br>
+ <%= text_field("message", "sender") %>                <br>
+
+ <%= label 'message', 'object', 'Object' %>  <br>
+ <%= text_field "message", "object" %>       <br>
+
+ <%= label 'message', 'core', 'Your message' %> <br>
+ <%= text_area("message", "core", :cols => "100", :rows =>"8") %>            <br>
+
+ <input type="submit" value=" Valider ">
+
+<% end %>

@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+<%= error_messages_for 'documentation' %>
+
+<% @active_tinymce = true%>
+<%= render :partial => "heatfoot", :locals => { :origin => @origine } %>
+
+<!--[form:product]-->
+  <div class="sub_exp">	
+    <%= label 'documentation', 'title' %><br />
+    <%= text_field 'documentation', 'title', :size => "85",:class => "mceNoEditor", 'readonly' => form %>
+  </div>
+
+  <div class="sub_exp">	
+    <%= label 'documentation', 'author' %><br />
+    <%= text_field 'documentation', 'author', :size => "85",:class => "mceNoEditor", 'readonly' => form %>
+  </div>
+
+  <div class="sub_exp">	
+    <div style="float:right;">
+	<%= label 'documentation', 'year' %><br />
+	<%= date_select 'documentation','year', :start_year => 1900, :order => [:year] %>	
+    </div>
+	<%= label 'documentation', 'source (Journal,...)' %> <br/>
+	<%= text_field 'documentation', 'source',:size => "50", 'readonly' => form %>
+  </div>
+
+  <div class="sub_exp">	
+    <%= label 'documentation', 'note' %><br />
+    <%= text_area 'documentation', 'note', :cols => "85", :rows =>"50", :class => "mceEditor", 'readonly' => form %>
+  </div>
+
+<% if origin == "new" %>
+<%= submit_tag "Create" %>
+<% elsif origin == "edit" %>
+<%= submit_tag "Update" %>
+<% end %>
+<br>
+
+<%= render :partial => "heatfoot", :locals => { :origin => @origine } %>
+
+<!--[eoform:product]-->

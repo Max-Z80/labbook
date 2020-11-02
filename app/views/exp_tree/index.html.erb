@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+
+<% @orange_left = "Project : " + @project.name %>
+<% @orange_right = "Hierarchy of experiments" %>
+<table border="0" width="100%">
+    <tr>
+        <td id="leftcell" width="70%">
+            <%= render :partial => "heatfoot" %>
+            <ul class ="tree">
+                <%= render :partial => 'tree', :collection => Experiment.find (:all, :conditions => {:project_id => @project, :parent_id => nil}) %>
+            </ul>
+        </td>
+        <td id="rightcell" width="30%">
+            <%= link_to "List all experiments", {:action => "list"}, :target => "form" %>
+            <br>
+            <%= link_to "Change hierarchy", {:action => "change"}, :target => "form" %>
+            <br>
+            <br>
+            <iframe name="form" src="" width="100%" height="300" frameborder="0">
+                iframe not supported by this browser.
+            </iframe>
+        </td>
+    </tr>
+</table>
+<script>
+    function toggle(cool){
+        var div1 = document.getElementById(cool)
+        if (div1.style.display == 'none') {
+            div1.style.display = 'block'
+        }
+        else {
+            div1.style.display = 'none'
+        }
+    }
+</script>

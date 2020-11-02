@@ -1,0 +1,4 @@
+<% @jaune="Your file collection (" + @items.size.to_s + ") " +  link_to ('Add', {:controller => 'docs', :action => 'step1_file', :table => @table} )  %>
+<% @origine = "edit" %>
+
+<%= render :partial => "frame_picture", :locals => {:origin => @origine, :table => @table} %>

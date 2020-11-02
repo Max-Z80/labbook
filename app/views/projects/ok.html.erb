@@ -1,0 +1,32 @@
+<html>
+<head>
+<title> Wait </title>
+
+<script type="text/javascript">
+<!--
+var seconde = 2
+;
+function decompteur() {
+	seconde = seconde - 1;
+	window.document.affiche.temps.value = seconde;
+	if (seconde == 0) window.parent.location.href='index' ;
+	window.setTimeout('decompteur()',1000);
+}
+// -->
+</script>
+</head>
+
+<body onLoad="window.setTimeout('decompteur()',1000)">
+
+<p style="color: green"><%= flash[:notice] %> </p>
+
+<div align="center">
+	This window will close automatically in 
+<form name="affiche" action="">
+<input size="2" name="temps" value="2">seconds
+</form>
+<%= link_to 'Index', 'index', :target => "_parent" %>
+</div>
+
+</body>
+</html>

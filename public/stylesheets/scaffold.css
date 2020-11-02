@@ -1,0 +1,280 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* errors managements */
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/* end error management */
+
+#blue{
+  height:60px;
+  margin-right:0px;
+  margin-left:81px;
+  border-bottom: 2px solid white;
+}
+
+#orange{
+  background-image: url(../images/degrade_orange_white.jpg);
+  background-repeat:repeat-x;
+  height:30px;
+  margin-right:0px;
+  margin-left:81px;
+  text-align:center;
+  font: 20px/20px "Times New Roman", serif;
+  color: #000099;
+  border-bottom: 2px solid white;
+}
+
+#font_orange{  
+  font: 20px/20px "Times New Roman", serif;
+  color: #000099;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+#jaune{
+  background-image: url(../images/degrade_vert_white.jpg);
+  background-repeat:no-repeat;
+  height:30px;
+  font: 20px/20px "Times New Roman", serif;
+  color: #000099;
+  text-align: center;
+}
+
+#rightcell {
+  border-left: 3px solid #000066;
+  text-align:left;
+  vertical-align:top;
+}
+
+#leftcell {
+  text-align:left;
+  vertical-align:top;
+  width: 70%;  /* this is what fixes the experiment / picture ratio */
+}
+
+.mceNoEditor, .mceEditor{
+  width:100%;
+  padding: 0px;
+}
+
+.sub_exp{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+/* for heater footer */
+.head_foot{
+background-image: url(../images/degrade_grey_white.jpg);
+font:italic bold 10pt Times;
+height:20px;
+padding-left:30px;
+margin-right:5px;
+}
+
+.head_foot_link:link{
+	text-decoration:none;
+	color:#000000;
+}
+
+.head_foot_link:visited{
+	text-decoration:none;
+	color:#000000;
+}
+
+.head_foot_link:hover {
+	text-decoration:none;
+	background:none;
+	}
+
+
+
+
+/* end heater footer */
+
+
+
+/* all for experiment/index */
+.exp_index_italic{
+font:italic 10pt Times;
+padding-left:10px;
+padding-top:15px;
+width:200px;
+}
+
+#exp_index_date{
+height:30px;
+border-top:1px solid blue;
+}
+
+.exp_index_normal{
+font:normal 12pt/14pt Times;
+margin-top:3px;
+margin-bottom:3px;
+}
+
+.exp_index_link{
+font:normal 10pt Times;
+margin-top:3px;
+margin-bottom:3px;	
+}
+
+.item0 {
+        background:#FFFFCC;
+}
+
+.item1 {
+        background: #FAEAFF;
+}
+/* end experiment/index */
+
+/* for exp_tree */
+.tree {
+	font:normal 11pt Times;
+	color: #000000;
+	margin-left: 13px;
+	padding-left: 0px;
+	list-style-type:square;
+}
+
+.link_0:link{
+	text-decoration:none;
+	color:#000000;
+}
+
+.link_1:link{
+	text-decoration:none;
+	color:#FF0000;
+}
+
+.link_0:visited{
+	text-decoration:none;
+	color:#000000;
+}
+
+.link_1:visited{
+	text-decoration:none;
+	color:#FF0000;
+}
+
+.link_0:hover {
+	text-decoration:none;
+	background-color:#FFFF00;
+	}
+
+.link_1:hover {
+	text-decoration:none;
+	background-color:#FFFF00;
+	}
+	
+.tree_conc_0{
+background-color: #ffff99;
+font:italic 10pt Times;
+color:#000000;
+border-width:1px;
+border-style:solid;
+border-color:#000000;
+margin-left:5px;
+padding:2px;
+}	
+	
+	
+.tree_conc_1{
+background-color: #ffff99;
+font:italic 10pt Times;
+color:#ff0000;
+border-width:1px;
+border-style:solid;
+border-color:#ff0000;
+margin-left:5px;
+padding:2px;
+}
+
+/* end exp_tree */
+
+.keypoint_title{
+background-color: #FFFFFF;
+font:bold 12pt Courier;
+color:#0000CC;
+border-width:1px;
+border-style:solid;
+border-color:#0000CC;
+margin-left:5px;
+padding:2px;
+}
+
+.keypoint_li{
+font: 12pt Times;
+color:#000000;
+list-style-image:url(../images/light.png);
+}
+
+/* for who is logged */
+.user{
+	font:bold 12pt Times;
+	text-align:right;
+	position:absolute;
+	top:10px;
+	right:10px;
+	width:70px;
+	height:60px;
+	z-index:2;	
+}
+/* end who is logged */

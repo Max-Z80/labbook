@@ -1,0 +1,12 @@
+<%= render :partial => 'message' %>
+<% @jaune = "Delete project" %>
+
+<% form_tag 'destroy' do %>
+
+<p>	
+    <%= label 'project', 'id', 'Select the folder that you can destroy (free of sub folders, experiments and documentation):' %><br />
+	<%= select('project', 'id', @tableau.collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+  
+<%= submit_tag "Destroy" %>
+<% end %>

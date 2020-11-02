@@ -1,0 +1,21 @@
+<%= render :partial => 'message' %>
+
+<% @jaune = "New project" %>
+
+<% form_tag 'create' do %>
+
+<p>	
+    <%= label 'project', 'name', 'Name of the folder :' %><br />
+    <%= text_field 'project', 'name', :cols => "80" %>
+</p>
+  
+<p>	
+    <%= label 'project', 'parent_folder', 'Name of the parent folder: ' %><br />
+	<%= select('project', "parent_id", Project.find(:all, :conditions => {:user_id => session[:user_id]}).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+  
+  
+<%= submit_tag "Create" %>
+<% end %>
+
+

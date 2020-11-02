@@ -1,0 +1,25 @@
+<% @jaune="Reference protocoles attached. (" + @items.size.to_s + ")" %>
+
+
+<p style="color: green"><%= flash[:notice] %> </p>
+
+<table width="100%" cellspacing="0" border="1"> 
+<% odd_or_even = 0 %>
+<% for item in @items
+protref = item.protref
+odd_or_even = 1 - odd_or_even %>
+<tr class="item<%= odd_or_even %>">
+	<td rowspan="1" style="border-top:1px solid blue;">
+					  <p class="exp_index_normal" align="center"> <b> <%=h protref.title %> </b> 
+					  <hr style="width:70%;color:black;">
+                      </p>
+					  <p align="right" class="exp_index_link">
+					  	 <%= link_to 'Details', {:action => 'detail', :id => protref} , {:style => 'color:blue;', :popup => ['popup', 'height=500, width=700, scrollbars=yes'] } %> 
+					 </p>	 
+	</td>
+</tr>
+
+<% end %>
+</table>
+
+

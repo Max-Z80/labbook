@@ -1,0 +1,20 @@
+<% @jaune = "Edit a reference protocole from the library" %>
+<% @orange_right = "Edit a reference protocole" %>
+
+
+<table border="0" width="100%">
+<tr>
+ <td id="leftcell">
+  <%= render :partial => "headfoot", :locals => { :origin => @origine}%>
+  <% form_tag :controller => 'protrefs', :action => 'update', :id => @protref do %>
+   <%= render :partial => 'form', :object => false, :locals => { :origin => @origine} %>
+  <% end %>
+  <%= render :partial => "headfoot", :locals => { :origin => @origine} %>
+ </td>
+ 
+ <td id="rightcell">
+ <div id="prepicture"> </div>
+ <iframe id="picture" name="picture" src="../../docs/edit_frame_picture/<%=@protref.id%>?table=Linkprotrefdoc" width="100%" height="500" frameborder="0"> iframe not supported by this browser.</iframe>	
+ </td>
+</tr>	
+</table>

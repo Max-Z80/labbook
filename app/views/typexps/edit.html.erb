@@ -1,0 +1,12 @@
+<h1>Editing typexp</h1>
+
+<% form_for(@typexp) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @typexp %> |
+<%= link_to 'Back', typexps_path %>

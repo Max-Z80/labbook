@@ -1,0 +1,4 @@
+- garder le tri choisi quand on revient sur l'index avec un "back"
+- revoir la session. Ne pas stoker des objets dedans mais juste les id des objets.
+- la session est sauvee dans la BD mais jamais supprimée, c'est normal mais ca pourrait devenir mauvais s'il y avait trop d'utilisateurs
+ 

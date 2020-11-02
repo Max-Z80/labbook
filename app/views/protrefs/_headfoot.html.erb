@@ -1,0 +1,32 @@
+<div class="head_foot" >
+<div style="float:left" >
+ <% if origin == "edit_frame_protref" %>	
+ <%= link_to "Select" ,{:controller =>"protrefs", :action =>"add"}, {:popup => ['popup', 'height=700, width=700, scrollbars=yes'], :class => "head_foot_link" }  %> - 
+ <%= link_to 'Create', {:controller => "protrefs", :action => "new" }, {:popup => ['popup', 'height=700, width=700, scrollbars=yes'], :class => "head_foot_link" } %> - 
+ <%= link_to 'Delete', {:controller => "protrefs", :action => "delete" }, {:class => "head_foot_link" } %>
+ <% elsif origin == "new" %>
+ <%= link_to "Close" , {:action => "ok"}, {:class => "head_foot_link"} %> - 
+ <% elsif origin == "detail" %>
+ <%= link_to_function "Close" ,"window.close()", {:class => "head_foot_link"} %> -
+ <% elsif origin == "edit" %>
+ <%= link_to  "Close", {:action => "ok"}, {:class => "head_foot_link"} %> - 
+ <% elsif origin == "add" %>
+ <%= link_to_function "Close" ,"window.close()", {:class => "head_foot_link"} %>
+ <% elsif origin == "delete" %>
+ <%= link_to "Back" ,{:action =>"edit_from_exp"}, {:class => "head_foot_link"} %> 
+ <% elsif origin == "delete_from_index" %>
+ <%= link_to "Back" ,{:action =>"index"}, {:class => "head_foot_link"} %> 
+ <% elsif origin == "index" %>
+ <%= link_to "Back to project" ,{:controller =>"projects", :action =>""}, {:class => "head_foot_link"} %> - 
+ <%= link_to 'New', {:controller => "protrefs", :action => "new_from_index" }, {:class => "head_foot_link" } %> - 
+ <%= link_to 'Delete', {:controller => "protrefs", :action => "delete_from_index" }, {:class => "head_foot_link" } %>
+ <% elsif origin == "new_from_index" %>
+ <%= link_to "Back" ,{:controller =>"protrefs", :action =>"index"}, {:class => "head_foot_link"} %>
+ <% elsif origin == "detail_from_index" %>
+ <%= link_to "Back" ,{:controller =>"protrefs", :action =>"index"}, {:class => "head_foot_link"} %> - 
+ <%= link_to "Edit" ,{:controller =>"protrefs", :action =>"edit_from_index", :id => @protref}, {:class => "head_foot_link"} %>
+ <% elsif origin == "edit_from_index" %>
+ <%= link_to "Back" ,{:controller =>"protrefs", :action =>"index"}, {:class => "head_foot_link"} %>
+ <% end -%>
+</div> 
+</div>	

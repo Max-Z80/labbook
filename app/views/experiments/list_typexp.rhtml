@@ -1,0 +1,51 @@
+<html>
+<head>
+<title> Pop up </title>
+</head>
+
+<body>
+<% @page_title = "Gestion des Types d'experience" -%>
+
+<table border="1">
+  <tr>
+  <% for column in Typexp.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for typexp in @typexps %>
+  <tr>
+  	<% form_tag :action => 'update_typexp', :id => typexp.id do %>
+    <td> <%=text_field ("typexp", "name", "value"=> typexp.name)%> </td>
+	<td>
+	<%= submit_tag 'Update' %> </br>
+	<%= link_to 'Delete', { :action => 'destroy_typexp', :id => typexp }, :confirm => 'Are you sure?', :method => :post %>
+	</td>
+	<% end %>
+  </tr>
+  
+<% end %>
+<tr>
+    <% form_tag :action => 'add_typexp'  do %>
+	<td> Nouveau type </br> <%=text_field ("typexp", "name") %> </td>
+	<td> <%= submit_tag 'Add' %> </td>
+	<% end %>
+  </tr>
+</table>
+
+
+
+
+<%= link_to_function "Fermer cette fenètre", "tschao()" %>
+
+<script type="text/javascript"> 
+function tschao()
+{
+window.opener.location.reload();
+window.close();	
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  goal: MyText
+  protocole: MyText
+  result: MyText
+  conclusion: MyText
+  summary: MyText
+
+two:
+  goal: MyText
+  protocole: MyText
+  result: MyText
+  conclusion: MyText
+  summary: MyText

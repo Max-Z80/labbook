@@ -1,0 +1,31 @@
+<% @orange="Free subscription" %>
+<%= render :partial => "headfoot", :locals => { :origin => "notlogged"} %>
+
+<%= error_messages_for 'user' %>
+
+
+
+<p> Please fill the following form. The subscription is free. </p>
+<p> If you loose your password, your login an email will be asked. Click "Contact me". </p>
+ 
+
+<% form_tag :action => 'add_user' do %>
+<table align="center" cellspacing="10px">
+<tr>
+ <td>Login:</td>
+ <td><%= text_field("user", "name") %></td>
+</tr>
+<tr>
+ <td>Password:</td>
+ <td><%= password_field("user", "password") %></td>
+</tr>
+<tr>
+ <td>E-mail:</td>
+ <td><%= text_field("user", "email") %></td>
+</tr>
+<tr>
+ <td> </td>
+ <td><input type="submit" value=" OK " /></td>
+</tr>
+</table>
+<% end -%>

@@ -1,0 +1,19 @@
+<%= render :partial => 'message' %>
+<% @jaune = "Rename project" %>
+
+<% form_tag 'update' do %>
+
+<p>	
+    <%= label 'project', 'id', 'This folder :' %><br />
+	<%= select('project', 'id', Project.find(:all, :conditions => {:user_id => session[:user_id]}).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+  
+<p>	
+    <%= label 'project', 'name', 'will be renamed as :' %><br />
+	<%= text_field('project', 'name', :col => "80") %>
+</p>
+  
+    <%= hidden_field 'origin', 'value', :value => "rename"  %>
+  
+<%= submit_tag "Update" %>
+<% end %>

@@ -1,0 +1,5 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+<% if not @doc.nil? then
+if not @doc.protref.nil? then %> <%= @doc.protref.protocole %> 
+<%- end
+ end %>

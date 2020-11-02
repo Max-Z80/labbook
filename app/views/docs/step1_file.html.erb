@@ -1,0 +1,11 @@
+<% @jaune = "Select the file." %>
+
+<% form_tag({:action => 'create', :table => @table}, {:multipart => true}) do -%>
+I want to add the following picture to my experiment:
+<br>
+<%= file_field 'doc' ,'avatar' %>
+<br>
+<br>
+
+<%= submit_tag 'Add' %>
+<%end %>

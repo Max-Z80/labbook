@@ -1,0 +1,18 @@
+<div class="head_foot" >
+<div style="float:left" >
+ <% if origin == "index" %>	
+ <%= link_to "Back to experiment" ,{:controller =>"experiments", :action =>"redirect_to_index"}, {:class => "head_foot_link"} %> - 
+ <%= link_to 'New documentation', {:controller => "documentations", :action => "new_frame_form"}, {:class => "head_foot_link"}  %>
+ <% elsif origin == "new" %>
+ <%= link_to "Back" ,{:controller =>"documentations", :action =>"redirect_to_index"}, {:class => "head_foot_link"} %> - 
+ <% elsif origin == "detail" %>
+ <%= link_to "Back" ,{:controller =>"documentations", :action =>"redirect_to_index"}, {:class => "head_foot_link"} %> -
+ <%= link_to "Edit" ,{:controller =>"documentations", :action =>"edit_frame_form", :id => @documentation}, {:class => "head_foot_link"} %> -
+ <%= link_to 'Print',{:action => 'print', :id => @documentation} ,  {:class => "head_foot_link", :popup => ['Print', 'height=700 , width=600, scrollbars=yes'] } %>   
+ <% elsif origin == "edit" %>
+ <%= link_to "Back" ,{:controller =>"documentations", :action =>"redirect_to_index"}, {:class => "head_foot_link"} %> - 
+ <% elsif origin == "popup" %>
+ <%= link_to_function "Close this windows", "self.close()", {:class => "head_foot_link"}  %> - 
+ <% end -%>
+</div> 
+</div>	

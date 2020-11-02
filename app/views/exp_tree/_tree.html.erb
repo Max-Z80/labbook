@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+
+<%
+conc1= tree.conclusion
+if conc1.index('.')== nil
+  chess="0"
+else
+  conc2= conc1.index('.')
+  conc3= conc1[0..conc2]
+  if conc3 == ("Chess." or "chess.")
+    chess = "1"
+  else chess = "0"
+  end
+end
+%>
+
+    <li class ="tree">   
+   <% if tree.children.empty? %>
+     <div>
+     <%= render :partial => 'titletreatment' , :locals => {:tree => tree, :chess => chess} %>	 
+	 <%= link_to_function (image_tag("loupe_bleue_16x16.png", :size => "12x12", :border => "0"), "toggle('conclusion_#{tree.id}');") %>
+	 </div>
+	 
+	 <div id="conclusion_<%= tree.id %>" class="tree_conc_<%=chess%>" style="display:none;">
+	 <%= tree.conclusion %>
+	 </div>
+   <% else %>
+     <div>
+     
+	 <%= render :partial => 'titletreatment' , :locals => {:tree => tree, :chess => chess} %> 
+	 <%= link_to_function (image_tag("green_arrow_down_32x32.png", :size => "16x16", :border => "0"), "toggle('tree_children_#{tree.id}');") %>
+	 <%= link_to_function (image_tag("loupe_bleue_16x16.png", :size => "12x12", :border => "0"), "toggle('conclusion_#{tree.id}');") %>
+	 </div>
+	 <div id="conclusion_<%= tree.id %>" class="tree_conc_<%=chess%>" style="display:none;">
+	 <%= tree.conclusion %>
+     </div>
+   
+     </li>
+	 <ul class ="tree" id="tree_children_<%= tree.id%>" >
+	 <%= render :partial => 'tree', :collection => tree.children %>
+	 </ul>
+   <% end %>  
+  

@@ -1,0 +1,32 @@
+<% @orange=" Hi Dude !!" %>
+
+<%= render :partial => "headfoot", :locals => { :origin => "notlogged"} %>
+
+<p style="color: green"><%= flash[:notice] %> </p>
+
+<br>
+<div style="text-align: center;"><big><big><big><big>Welcome to your
+Labbook</big></big></big></big><br>
+</div>
+<br>
+<br>
+<p style="text-decoration: underline;">What is this ?</p>
+<p> This project is an electronic lab book, a tool which helps you to keep
+traces of the experiments you have done. All you data (texts, pictures,
+pdf,...) are stored on a remote server. After logged in, you access
+them via whatever computer on the network with your favorite browser. </p>
+
+<p> Feel free to follow the links if you want to know / see more about this project. </p>
+
+<% form_tag do%>
+<table align="center" cellspacing="10px">
+ <tr>
+  <td>Login: <%= text_field("user", "name") %></td>
+  <td>Password: <%= password_field("user", "password") %></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><input type="submit" value=" Yeah ! " /></td>
+ </tr>
+</table>
+<% end %>

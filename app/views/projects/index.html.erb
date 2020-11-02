@@ -1,0 +1,53 @@
+<% @orange = 'Available projects' %>
+
+
+<% if flash[:notice] -%>
+<div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+
+
+<table border="0" width="100%">
+<tr>
+
+<td id="leftcell" width="70%">
+<ul style="list-style-type:none">
+<%= render :partial => 'project', :collection => @projects %>
+</ul>
+</td>
+
+<td id="rightcell" width="30%" >
+<div class="head_foot" >
+<div style="float:left" >
+	Folder : 
+<%= link_to "New", {:action => "new"}, {:class => "head_foot_link", :target => "form"} %> - 
+<%= link_to "Rename", {:action => "rename"}, {:class => "head_foot_link", :target => "form"} %> - 
+<%= link_to "Move", {:action => "move"}, {:class => "head_foot_link", :target => "form"} %> - 
+<%= link_to "Delete", {:action => "delete"}, {:class => "head_foot_link", :target => "form"} %>
+</div>
+</div>
+<iframe name="form" src="" width="100%" height="300" frameborder="0"> iframe not supported by this browser.</iframe>	
+</td>
+
+</tr>
+</table>
+
+
+
+
+
+
+
+<script>
+function toggle(cool){
+	var div1 = document.getElementById(cool)
+	if (div1.style.display == 'none') {
+		div1.style.display = 'block'
+	} else {
+		div1.style.display = 'none'
+	}
+}
+</script>
+
+
+
+

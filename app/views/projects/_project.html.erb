@@ -1,0 +1,20 @@
+    <li>   
+   
+   <% if project.children.empty? %>  
+   <%= link_to h(project.name),{:controller =>'experiments',:action =>'from_project_to_index',:id => project.id},:target =>'_parent' %>  
+	 <% if project.name == "My reference protocols" then %> (<%= @protref.length %>) <% else %> (<%= project.experiments.size%>) <%- end %>
+   <% else %>
+   <%= link_to_function(image_tag("project-open.png", :size => "16x16", :border => "0"), "toggle('project_children_#{project.id}');") %> 
+	 <%= link_to h(project.name), {:controller => 'experiments', :action => 'from_project_to_index', :id => project.id} ,:target => '_parent'%>
+	 (<%= project.experiments.size%>)
+     </li>
+	 <ul id="project_children_<%= project.id%>" style="display:none; list-style-type:none">
+	 <%= render :partial => 'project', :collection => project.children %>
+	 </ul>
+   <% end %>  
+  
+ 
+
+
+
+

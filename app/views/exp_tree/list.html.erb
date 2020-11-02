@@ -1,0 +1,22 @@
+<% @jaune = "Hierarchy for all experiments." %>
+<table border="1" width="100%">
+<tr> 
+<th> Experiment</td>
+<th> Parent </td>
+</tr>
+
+<% for exp in @experiment %>
+  <tr>
+    <td><%=h exp.title %>
+	</td>
+	
+	<% if exp.parent_id == nil %>
+	<td> none</td>
+	<% else %>
+	<% parent= Experiment.find(exp.parent_id) %>
+	<td> <%= parent.title %></td>
+	<% end %>
+  </tr>
+  <% end %>	
+</table>
+

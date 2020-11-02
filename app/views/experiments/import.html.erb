@@ -1,0 +1,18 @@
+<% @orange = "Import in "+ @project.name%>
+<% @origine = 'import'%>
+<p style="color: red"><%= flash[:notice] %> </p>
+
+<%= render :partial => "heatfoot", :locals => { :origin => @origine}%>
+
+ <% form_tag ('imported') do %>
+
+<p>	
+    <%= label 'experiment', 'id' , "Choose a protocol amongst your templates or previous experiments:" %> <br>
+	<%= select('experiment', "id", @table, { :include_blank => true }) %>
+  </p>
+
+
+ <%= submit_tag "Import" %>
+ <% end %>
+<br>
+<%= render :partial => "heatfoot", :locals => { :origin => @origine}%>	

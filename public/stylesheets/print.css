@@ -1,0 +1,45 @@
+/* object page handle single sided or double sided printer*/
+
+/*@page :left {
+  margin-left: 1cm;
+  margin-right: 2cm;
+}
+
+@page :right {
+  margin-left: 2cm;
+  margin-right: 1cm;
+}
+*/
+body,table {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   10px;
+  line-height: 11px; 
+}
+
+
+ul{ list-style-image:url(../images/puce4X4.jpeg);}
+
+.title_part{
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align: center;
+	font-size:14px;
+	font-weight: bolder;
+	color:#000099;
+	letter-spacing:10pt;
+	border:1px solid black;
+	background-color : #FFFF99;
+	line-height: 14px;
+	width:100%;
+	
+}
+
+.part_content{
+	padding:5px;
+}
+.table_pictures{
+	margin: 10px;
+	font-family: verdana, arial, helvetica, sans-serif;
+    font-size:   10px;
+    line-height: 11px; 
+}

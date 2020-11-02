@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+<% @orange_left="Project: " + @project.name %>
+<% @orange_right="Keypoints" %>
+
+<%= render :partial => "heatfoot", :locals => { :origin => ''}%>
+<br>
+<% for table in @table do %>
+    <div class="keypoint_title">
+  	<%= table[0] %>
+	<ul>
+	<% for experiment in table[1] do %>
+	 <li class="keypoint_li"> <%= link_to h(experiment.summary), {:controller => 'experiments', :action => 'detail_frame_form', :id => experiment }, {:class => "link_0"}  %> </li>
+	<% end %>	
+	</ul>
+	</div>
+	<br>
+<% end %>
+
+<%= render :partial => "heatfoot", :locals => { :origin => ''} %>

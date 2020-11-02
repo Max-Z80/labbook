@@ -1,0 +1,18 @@
+<% @orange_left = "Project : " + @project.name %>
+<% @orange_right = "Detail of an experiment" %>
+<% @origine = "detail" %>
+
+
+<table border ="0" width="100%">
+<tr>
+ <td id="leftcell" >
+ <%= render :partial => 'form', :object => true, :locals => { :origin => @origine} %>
+
+ </td>
+ <td id="rightcell">
+ 	<div id="prepicture"> </div>
+ 	<iframe id="picture" name="picture" src="../../docs/detail_frame_picture/<%=@experiment.id%>?table=Linkexpdoc" width="100%" height="500" frameborder="0"> iframe not supported by this browser.</iframe>	
+ </td>
+</tr>
+</table>
+

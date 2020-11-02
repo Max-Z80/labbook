@@ -1,0 +1,24 @@
+<table border="0" width="100%">
+<%
+for item in @items
+  doc = item.doc
+  if doc.avatar_content_type.include? "image"
+    if doc.avatar.height >(1.2*doc.avatar.width) -%>
+      <tr> <td colspan="3" align="center"> <%= link_to (image_tag(doc.avatar.url(:medium),:height => "250",:border => "0"), {:controller => 'docs', :action => 'see_full_doc', :id => doc.id }, :target => "_blank" ) %> </td> </tr>
+    <% else %>
+	  <tr> <td colspan="3"> <%= link_to (image_tag(doc.avatar.url(:medium),:width => "100%",:border => "0"), {:controller => 'docs', :action => 'see_full_doc', :id => doc.id }, :target => "_blank" ) %> </td> </tr>
+    <% end
+  elsif doc.avatar_content_type.include? "pdf" -%>
+	 <tr> <td colspan="3" align="center"> <%= link_to (image_tag("icon_pdf_48x48.png", :border => "0"), doc.avatar.url , :target => "_blank" ) %> </td> </tr>
+  <% else %>
+	  <tr> <td colspan="3" align="center"> <%= link_to (image_tag("floppy_disk_48x48.png", :border => "0"), doc.avatar.url , :target => "_blank" ) %> </td> </tr>
+  <% end %>	  
+  <tr > 
+  <td align="center" width="100%"> <%= h(doc.title) %>  </td>
+  <% if (origin == "new") or (origin == "edit") %>
+    <td> <%= link_to (image_tag('icone_loupe_32x32.png', :size => "20x20", :border => "0"), {:controller => 'docs', :action => 'step3_legend', :id => doc, :table => @table}) %> </td>
+    <td> <%= link_to (image_tag('icone_trash_32x32.png', :size => "20x20", :border => "0"), {:controller => 'docs', :action => 'destroy', :id => doc, :table => table }, :confirm => 'Are you sure?', :method => :post)  %> </td>
+  <% end %>
+</tr>
+<% end -%>
+</table>  

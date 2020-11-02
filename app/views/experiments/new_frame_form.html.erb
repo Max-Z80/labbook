@@ -1,0 +1,21 @@
+
+<% @orange_left = "Project : " + @project.name %>
+<% @orange_right = "New experiment" %>
+<% @origine = "new" %>
+
+<table border="0" width="100%" >
+<tr>
+ <td id="leftcell" >
+ <% form_tag ( 'create') do %>
+ <%= render :partial => 'form', :locals => { :origin => @origine} %>
+ <% end %>	
+ </td>
+ 
+ <td id="rightcell">
+ <div id="prepicture" > </div>
+ <iframe id="picture" name="picture" src="../docs/edit_frame_picture?table=Linkexpdoc" width="100%" height="700" frameborder="0"> iframe not supported by this browser.</iframe>	
+ </td>
+</tr>	
+</table>
+
+

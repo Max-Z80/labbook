@@ -1,0 +1,14 @@
+<% @orange = "Select documentation in the project " + @project.name %>
+<% @origine = "select" %>
+<p style="color: red"><%= flash[:notice] %> </p>
+
+<%= render :partial => "heatfoot", :locals => { :origin => @origine } %>
+
+<% form_tag ('selected') do %>
+  <p>	
+    <%= label 'documentation', 'id' , "Choose a documentation available in the current project:" %> <br>
+	<%= select('documentation', "id", @table, { :include_blank => true }) %>
+  </p>
+  <%= submit_tag "Open" %>
+<% end %>
+<br>

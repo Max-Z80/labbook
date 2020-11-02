@@ -1,0 +1,19 @@
+<%= error_messages_for 'experiment' %>
+<p style="color: red"><%= flash[:notice] %> </p>
+
+<% @jaune = "Change hierarchy" %>
+
+<% form_tag 'update' do %>
+
+<p>	
+    <%= label 'experiment', 'id', 'I want this experiment' %><br />
+	<%= select('experiment', 'id', @table, { :include_blank => true }) %>
+</p>
+  
+<p>	
+    <%= label 'experiment', 'parent_id', 'to be the next step of this experiment:' %><br />
+	<%= select('experiment', 'parent_id', Experiment.find(:all, :conditions => {:project_id => @project}).collect {|p| [ p.title, p.id ] }, { :include_blank => true }) %>
+</p>
+  
+<%= submit_tag "Update" %>
+<% end %>

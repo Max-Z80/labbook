@@ -1,0 +1,18 @@
+<%= render :partial => 'message' %>
+<% @jaune = "Move project" %>
+
+<% form_tag 'update' do %>
+
+<p>	
+    <%= label 'project', 'id', 'This folder :' %><br />
+	<%= select('project', 'id', Project.find(:all, :conditions => {:user_id => session[:user_id]}).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+  
+<p>	
+    <%= label 'project', 'name', 'will move to this folder :' %><br />
+	<%= select('project', 'parent_id', Project.find(:all, :conditions => {:user_id => session[:user_id]}).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+</p>
+  
+  <%= hidden_field 'origin', 'value', :value => "move"  %>
+<%= submit_tag "Update" %>
+<% end %>

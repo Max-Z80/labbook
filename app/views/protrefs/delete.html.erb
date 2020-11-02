@@ -1,0 +1,16 @@
+<% @jaune = "Delete a reference protocole" 
+@orange_right = "Delete a reference protocole" %>
+
+<% if flash[:notice] -%>
+<div id="notice"><%= flash[:notice] %></div>
+<% end -%>
+
+<%= render :partial => "headfoot", :locals => { :origin => @origine }%> 
+<% form_tag 'destroy' do %>
+<p>	
+    <%= label 'protref', 'id', 'Select the reference protocole that you can remove from the database (not used in an experiment or in a legend.):' %><br />
+	<%= select('protref', 'id', @tableau.collect {|p| [ p.title, p.id ] }, { :include_blank => true }) %>
+	<%= hidden_field(:parameter, :origin, {:value => @origine}) %>
+</p>
+<%= submit_tag "Destroy" %>
+<% end %>

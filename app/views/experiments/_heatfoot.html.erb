@@ -1,0 +1,32 @@
+<div class="head_foot" >
+<div style="float:left" >
+ <% if origin == "index" %>	
+ <%= link_to "Back to project" ,{:controller =>"projects", :action =>""}, {:class => "head_foot_link"} %> - 
+ <%= link_to "View experiments Tree", {:controller => "exp_tree", :action => "index"}, {:class => "head_foot_link"} %> - 
+ <%= link_to 'New experiment', {:controller => "experiments", :action => "new_frame_form"}, {:class => "head_foot_link"}  %> - 
+ <%= link_to 'Documentation', {:controller => "documentations", :action => "index"}, {:class => "head_foot_link"}  %> - 
+ <%= link_to 'Keypoints', {:controller => "experiments", :action => "keypoints"}, {:class => "head_foot_link"}  %>
+    </div>
+    <div style="float:right">
+    <% form_tag (:controller => "experiments" , :action =>'sort') do %> 
+    Sort by: <%= select_tag "sort","<option>Type</option><option>Performed</option><option>Updated</option>" %>
+	<%= submit_tag "Go" %>
+	<% end %>	
+    </div> 
+ <% else %>	  
+	 <% if origin == 'import' %>
+     <%= link_to_function "Back", "history.back()", {:class => "head_foot_link"} %>
+	 <% else %> 
+	   <%= link_to 'Back', {:action => "redirect_to_index"}, {:class => "head_foot_link"}  %> -
+	   <%= link_to 'Documentation', {:controller => "documentations", :action => 'index'}, {:class => "head_foot_link", :target => "_blank" }%> - 
+ 	   <% if origin == "new" %>
+       <%= link_to 'Import', {:action=> 'import'}, {:class => "head_foot_link"} %> - 
+	   <% elsif origin =="detail" %>
+	   <%= link_to 'Edit', {:action => 'edit_frame_form', :id=> @experiment}, {:class => "head_foot_link"} %> - 
+	   <%= link_to 'Print', {:action => 'print', :id=>@experiment} ,  {:class => "head_foot_link", :popup => ['Print', 'height=700 , width=600, scrollbars=yes'] } %>
+	   
+	   <% end %>
+	 <% end %>  
+ <% end %>
+</div>	 
+</div>	

@@ -1,0 +1,17 @@
+<div class="head_foot" >
+<div style="float:left" >
+ <% if origin == "notlogged" %>	
+ <%= link_to "Welcome" ,{:controller =>"login", :action =>"welcome"}, {:class => "head_foot_link"} %> - 
+ <%= link_to "The project", {:controller => "login", :action => "theproject"}, {:class => "head_foot_link"} %> - 
+ <%= link_to 'Development', {:controller => "login", :action => "development"}, {:class => "head_foot_link"}  %> - 
+ <%= link_to 'The author', {:controller => "login", :action => "theauthor"}, {:class => "head_foot_link"}  %> - 
+ <%= link_to 'Contact me', {:controller => "login", :action => "contactme"}, {:class => "head_foot_link"}  %> - 
+ <%= link_to 'Subscribe' , {:controller => "login", :action => 'add_user'}, {:class => "head_foot_link"}%>
+    </div>
+
+ <% else %>	  
+	 <%= link_to 'Back to project', {:controller => "projects", :action => "index"}, {:class => "head_foot_link"}  %> -
+ 
+ <% end %>
+</div>	 
+</div>	

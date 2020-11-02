@@ -1,0 +1,99 @@
+<html>
+<head>
+	<title> Print </title>
+	
+</head>	
+
+<body>
+<%= stylesheet_link_tag "print", :media => "all" %>
+
+<table border="1", width="100%", style="border:2px solid black; border-collapse:collapse;">
+
+	<tr style="border:thin solid black">
+		<td colspan="3", style="border-style:none;padding:5px;"> Project : <%= @project.name %> <div style="float:right;" ><%= link_to_function (image_tag("print24x24.gif", :size => "14x14",:border => "0") , "window.print();return false" ) %> </div></td>
+	</tr>
+	<tr style="border:thin solid black;">
+
+		<td> Documentation </td>
+		<td width="100%", align="center", style="border-style:none;padding:5px;"> <%=@documentation.title %></td>
+		<td align="right", style="border-style:none;padding:5px;"> Last&nbsp;update: <br> <%=@documentation.last_update%></td>
+	</tr>
+</table>
+<br>
+
+
+<div class="title_part"> General informations </div>
+<div class="part_content"> 
+Author : <%= @documentation.author %> <br>
+Year   : <%= @documentation.year %> <br>
+Source : <%= @documentation.source %> <br>
+</div>
+<br>
+
+	
+<div class="title_part"> Content </div>
+<div class="part_content"> <%=@documentation.note %> </div>
+
+
+<% 
+#@items contient les items non tries
+#on garde que les images puis on met les images qui ont une hauteur superieure a 2 fois la largeur a la fin du tableau
+@picturesonly =[]
+for item in @items
+  if item.doc.avatar_content_type.include? "image" then @picturesonly << item end
+end
+
+@otherdocs = @items - @picturesonly
+if not @otherdocs.length == 0 then  %>
+  <div class="title_part"> Other documents (<%= @otherdocs.length %>)  </div>
+  <table border ="1">
+	<thead> <tr> <th>  Title </th> <th> Legend </th> </tr> </thead>
+	<% for otherdoc in @otherdocs %>
+      <tr> <td> <%= otherdoc.doc.title %> </td> 
+      <td> <%= otherdoc.doc.legend %> <% if not otherdoc.doc.protref.nil? then %>  <%= otherdoc.doc.protref.protocole %> <%- end %> </td>
+    <%- end %>
+  </table>
+<%- end %>   
+		
+
+<% if @picturesonly.length != 0 then %>
+<div style="page-break-after:always"> </div>
+<div class="title_part"> Pictures (<%= @picturesonly.length %>)  </div>
+
+<%- end %>
+<%
+@pictures_ordered=[]
+@temp2=[]
+for item in @picturesonly
+  heigthcm = item.doc.avatar_height / item.doc.avatar_dpih * 2.54   # height in centimeter
+  widthcm = item.doc.avatar_width / item.doc.avatar_dpiw * 2.54   # width in centimeter
+  if heigthcm > (2*widthcm) then @temp2 << item else @pictures_ordered << item end
+end
+@pictures_ordered = @pictures_ordered + @temp2
+
+n=-1
+for item in @pictures_ordered
+  n=n+1
+  widthcm = item.doc.avatar_width.quo(item.doc.avatar_dpiw) * 2.54   # width in centimeter 
+%>
+  <table width="100%" > 
+    <tr>  
+    <% if widthcm > 17 
+    then %>
+	 <td> <%= image_tag(item.doc.avatar.url(:original), {:border => "0", :style => "width:100%"}) %> </td></tr>
+	<tr> <td align="center"> <span style="font-weight:bold;"> <%= item.doc.title %> </span> </td> </tr> 
+    <% if not item.doc.legend.empty? or not item.doc.protref.nil? then %> <tr> <td> <span style="font-weight:bold;"> Legend: </span> <%- end %>
+	<% if not item.doc.legend.empty? then %> <%= item.doc.legend %> <%- end %>
+	<% if not item.doc.protref.nil? then %>  <%= item.doc.protref.protocole %> <%- end %>
+    <%- else %> 
+    <td width="<%=widthcm%>cm"> <%= image_tag(item.doc.avatar.url(:original), {:border => "0", :style => "width:#{widthcm}cm"}) %> </td>
+	<td align="left"> <span style="font-weight:bold;" > <%= item.doc.title %> </span> </br>  </br>
+    <% if not item.doc.legend.empty? or not item.doc.protref.nil? then %> <span style="font-weight:bold;"> Legend: </span> <%- end %> 
+	<% if not item.doc.legend.empty? then %>  <%= item.doc.legend %> <%- end %>
+	<% if not item.doc.protref.nil? then %>  <%= item.doc.protref.protocole %> <%- end %>
+	<%- end %>
+    </td> </tr> </table>     
+<%- end %>
+
+</body>
+</html>

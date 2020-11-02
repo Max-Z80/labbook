@@ -1,0 +1,19 @@
+<% if tree.parent == nil %>
+        <%= link_to h(tree.title), {:controller => 'experiments', :action => 'detail_frame_form', :id => tree }, {:class => "link_"+chess}  %>
+     <% else %>
+	      <% a= tree.parent.title
+          if a.index(',') == nil %>
+             <%= link_to h(tree.title), {:controller => 'experiments', :action => 'detail_frame_form', :id => tree }, {:class => "link_"+chess}  %>
+		  <% else 
+            b=a.index(',')
+            c=a[0..b] 
+            if tree.title.include?c
+              e=tree.title.length
+              d=tree.title[b+2..e]
+              %>
+              <%= link_to h(d), {:controller => 'experiments', :action => 'detail_frame_form', :id => tree }, {:class => "link_"+chess}  %>       
+	        <% else %>
+			<%= link_to h(tree.title), {:controller => 'experiments', :action => 'detail_frame_form', :id => tree }, {:class => "link_"+chess}  %>
+			<% end %>
+		  <%end %>	
+	 <% end %>

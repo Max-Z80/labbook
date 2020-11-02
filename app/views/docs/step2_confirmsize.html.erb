@@ -1,0 +1,24 @@
+<% @jaune = "Check dimensions." %>
+
+
+<% if @doc.avatar_content_type.include? "image" 
+     if @doc.avatar.height >(1.2*@doc.avatar.width) # ne pas mettre = sinon pb avec gif anime %>
+     <%= image_tag(@doc.avatar.url(:medium),:height => "250", :border => "0") %>
+  <% else %>
+	 <%= image_tag(@doc.avatar.url(:medium),:width => "100%", :border => "0") %>
+  <%- end %>
+<br>
+The dimensions of the pictures are (width x height):
+<ul>
+	<li> in pixel: <%= @doc.avatar_width %> x <%= @doc.avatar_height %>
+	<li> in cm: <%=(@doc.avatar_width.quo(@doc.avatar_dpiw)*2.54*10).round.to_f/10 %> cm x <%=(@doc.avatar_height.quo(@doc.avatar_dpih)*2.54*10).round.to_f/10 %> cm</li>
+</ul>
+   <% elsif @doc.avatar_content_type.include? "pdf" %>
+     <%= image_tag("icon_pdf_48x48.png", :border => "0") %>
+<% else %>
+    <%=image_tag("floppy_disk_48x48.png", :border => "0") %>
+   <% end %>
+
+<br>
+<%= link_to "Fine ! Next step.", :action => "step3_legend", :id =>@doc, :table => @table %> <br>
+<%= link_to "Replace this by another upload.", :action => "reupload", :id =>@doc, :table => @table %>

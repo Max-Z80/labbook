@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+<%= error_messages_for 'protref' %>
+
+<% @active_tinymce = true%>
+
+<!--[form:product]-->
+<div class="sub_exp">	
+  <%= label 'protref', 'title' %>
+  <%= text_field 'protref', 'title',:size => "85", :class => "mceNoEditor", 'readonly' => form %>
+  <p> Note: Protocol for legending gels, must start with "Gels :" </p>
+</div>
+
+<div class="sub_exp">
+  <%= label 'protref', 'protocole' %> 	
+  <%= text_area 'protref', 'protocole', :cols => "80", :rows =>"28",:class => "mceEditor", 'readonly' => form %>
+</div>
+
+<% if origin == "new" or origin =="new_from_index" %>
+<%= submit_tag "Create" %>
+<% elsif origin == "edit" or origin =="edit_from_index" %>
+<%= submit_tag "Update" %>
+<% end %>
+
+<br />
+
+<%=  hidden_field(:parameter, :origin, {:value => origin}) %>
+<!--[eoform:product]-->

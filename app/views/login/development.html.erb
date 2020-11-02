@@ -1,0 +1,79 @@
+<% @orange=" Hi Dude !!" %>
+
+<%= render :partial => "headfoot", :locals => { :origin => "notlogged"} %> 
+
+<p> The current running version is 1.7 </p>
+
+Version 1.7 (June 2012)
+<ul>
+	<li> Fix bug when updating picture title.</li>
+	<li> Fix bug when replacing image by another one.</li>
+	<li> Fix bug when adding an image after attaching a document.</li>
+	<li> Show title in yellow bar when displaying full-size picture.</li>
+</ul>
+
+Version 1.6 (April 2012)
+<ul>
+	<li> Use rails 2.3.14. </li>
+	<li> Improve display of experiment's content by aligning textareas. </li>
+	<li> Fix bug when editing a picture in documentation.</li>
+	<li> Simplify CSS for managing easily ratio between experiment data (left side) and pictures (right side).</li>
+	<li> New feature: It's now possible to add documents in a given reference protocole.</li>
+	<li> Simplify the code: Centralize X_frame_picture views.</li>
+	<li> Fix javascript bug with iframe when scrolling experiment under Chrome. </li>
+	<li> Printing experiment: Move picture section to the end to save paper. </li> 
+	<li> New feature: The title of a new document is the filename of the uploaded file without extension.</li>
+	<li> New feature: Print documentation.</li>
+	<li> New feature: View/Create/Edit documentation while Creating/Editing an experiment.</li>
+	<li> Update to tinyMCE version 3.5 (2012-05-03) due to a bug with firefox 11 with older version.</li>
+</ul>
+
+Known bugs in version 1.6
+<ul>
+	<li> Bug in tinyMCE version 3.5: impossible to insert table in textarea under Chrome.</li>
+</ul>
+
+
+
+Version 1.5 (July 2011)
+<ul>
+	<li> Fix minor bugs when printing. </li>
+	<li> Enable to create a new protocol during the legending of a gel. </li>
+	<li> Show 1-digit truncated dimensions of pictures in cm. </li>
+	<li> Show printing icon.</li>
+	<li> Projects "My experiment templates" and "My reference protocols" can not be deleted.</li>
+	<li> Handle the exception when "identify" fails.</li>
+	
+</ul>
+
+Version 1.4 (June 2011)
+<ul>
+	<li> Enable printing of experiments. </li>
+	<li> Change paperclip : resolution of pictures is recorded.</li>
+	<li> Docs : Enable the use of redondant legends. </li>
+	<li> Fix bug during import of an experiment. </li>
+	
+</ul>
+Version 1.3 (May, 2010)<br>
+<ul>
+	<li> Debug lost of data when switching from pictures to attached protocoles</li>
+	<li> New personnal version of paperclip from Kennon for win support.</li>
+	<li> Activate tinyMCE after import.</li>
+	<li> Improve documentation consulting during writing of a new exp.</li>
+	<li> Debug documentation when updating with docs.</li>
+	<li> Use an icon for pdf files in experiments and documentation.</li>
+	<li> Improve display of docs in documentation.</li>
+</ul>
+
+
+Version 1.2 <br>
+<ul> 
+<li> Improve layout when different resolutions are used. </li>
+<li> Add management of reference protocoles. </li>
+</ul>
+
+Version 1.1 <br>
+<ul> <li> Manage keypoints </li></ul>
+
+Version 1.0
+<ul> <li> initial version </li></ul>

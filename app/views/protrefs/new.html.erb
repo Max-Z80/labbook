@@ -1,0 +1,19 @@
+<% @jaune = "New reference protocole" %>
+
+
+<table border="0" width="100%" >
+<tr>
+ <td id="leftcell" > 	
+   <%= render :partial => "headfoot", :locals => { :origin => @origine} %>
+   <% form_tag ('create') do %>
+   <%= render :partial => 'form', :locals => { :origin => @origine} %>
+   <% end %>	
+   <%= render :partial => "headfoot", :locals => { :origin => @origine} %>	
+ </td>
+ 
+ <td id="rightcell">
+ <div id="prepicture" > </div>
+ <iframe id="picture" name="picture" src="../../docs/edit_frame_picture?table=Linkprotrefdoc" width="100%" height="700" frameborder="0"> iframe not supported by this browser.</iframe>	
+ </td>
+</tr>	
+</table>

@@ -1,0 +1,78 @@
+<%= stylesheet_link_tag "scaffold", :media => "all" %>
+<%= error_messages_for 'experiment' %>
+
+<% @active_tinymce = true%>
+<%= render :partial => "heatfoot", :locals => { :origin => @origine } %>
+
+<!--[form:product]-->
+<div class="sub_exp">
+  <%= label 'experiment', 'title' %>
+  <%= text_field 'experiment', 'title',:class => "mceNoEditor", :size => "85", 'readonly' => form %>
+</div>
+
+
+<div class="sub_exp">
+  <div style="float:right;">
+	<%= label 'experiment', 'date_exp',"When did you start" %>
+	<%= datetime_select 'experiment','date_exp', :discard_minute => true, :discard_hour => "true", :order => [:day, :month, :year] %>	
+  </div>
+  <%= label 'experiment', 'typexp_id',"Select a type" %>
+  <%= select('experiment', "typexp_id", Typexp.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true }) %>
+  <%= link_to 'Modify list', {:action => 'list_typexp'} , :popup => ['new_window_name', 'height=500 , width=760, scrollbars=yes'] %>
+</div>
+
+
+<div class="sub_exp">	
+  <%= label 'experiment', 'goal' %>
+  <%= text_area 'experiment', 'goal', :rows =>"3",:cols => "85",:class => "mceNoEditor", 'readonly' => form %>
+</div>
+  
+<div class="sub_exp">
+  <%= label 'experiment', 'protocole' %>
+  <span class="exp_index_link">
+	<% if @origine == 'detail' %>
+	  <%= link_to 'Attached protocoles', {:action => 'detail_from_exp', :controller => 'protrefs', :id => @experiment.id} , {:target => 'picture', :style => 'color:blue;'} %> <br/>
+	<% else %>
+	  <%= link_to 'Attached protocoles', {:action => 'edit_from_exp', :controller => 'protrefs', :id => @experiment.id} , {:target => 'picture', :style => 'color:blue;'} %> <br/>
+	<% end -%>
+  </span>
+  <%= text_area 'experiment', 'protocole', :rows =>"30",:cols => "85",:class => "mceEditor", 'readonly' => form %>
+</div>
+  
+<div class="sub_exp">
+  <%= label 'experiment', 'result' %>
+  <span class="exp_index_link">
+	<% if @origine == 'detail' %>
+	  <%= link_to 'Attached documents', {:action => 'detail_frame_picture', :controller => 'docs', :id => @experiment.id, :table => Linkexpdoc} , {:target => 'picture', :style => 'color:blue;'} %> <br/>
+	<% else %>
+	  <%= link_to 'Attached documents', {:action => 'edit_from_exp', :controller => 'docs', :id => @experiment.id, :table => Linkexpdoc} , {:target => 'picture',:style => 'color:blue;'} %> <br/>
+	<% end -%>
+  </span>
+  <%= text_area 'experiment', 'result', :rows =>"30", :cols => "85",:class => "mceEditor", 'readonly' => form %>
+</div>
+  
+<div class="sub_exp">
+  <%= label 'experiment', 'conclusion' %> (Optional: start with "Chess.")
+  <%= text_area 'experiment', 'conclusion', :rows =>"5", :cols => "85",:class => "mceNoEditor", 'readonly' => form %>
+</div>
+  
+<div class="sub_exp">
+  <%= label 'experiment', 'summary', 'Key points to remember (optional)' %>
+  <%= text_area 'experiment', 'summary', :rows =>"7",:cols => "85",:class => "mceNoEditor", 'readonly' => form %>
+</div>
+  
+<div class="sub_exp">
+  <%= label 'experiment', 'parent_id',"History (optional) <br> Select the parent experiment" %>
+  <%= select('experiment', "parent_id", Experiment.find(:all, :conditions => {:project_id => @project}).collect {|p| [ p.last_update.to_s + " - " + p.title, p.id ] }, { :include_blank => true}) %>
+</div>
+
+<% if origin == "new" %>
+<%= submit_tag "Create" %>
+<% elsif origin == "edit" %>
+<%= submit_tag "Update" %>
+<% end %>
+<br>
+
+<%= render :partial => "heatfoot", :locals => { :origin => @origine } %>
+
+<!--[eoform:product]-->

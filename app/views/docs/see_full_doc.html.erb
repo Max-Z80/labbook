@@ -1,0 +1,6 @@
+<% @jaune = "Picture in full-size." %>
+<table>
+ <tr> <td align ="center"> <%=image_tag(@doc.avatar.url, :border => "0") %> </td> </tr>	
+ <tr> <td align ="center"> <%= h(@doc.title) %>             </td> </tr>
+ <tr> <td align ="center"> <%= h(@doc.legend) %> </br> <% if not @doc.protref.nil? then %>  <%= @doc.protref.protocole %> <%- end %>            </td> </tr>
+</table>
